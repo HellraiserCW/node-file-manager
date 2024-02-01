@@ -1,11 +1,12 @@
 import readline from 'node:readline/promises';
 import { stdin as input, stdout as output } from 'node:process';
 
+import { greeting } from './modules/greeting.js';
 import { printWorkingDirectory } from './modules/working-directory.js';
-import { username } from './modules/username.js';
 import { processUserInput } from './modules/process-user-input.js';
+import { farewell } from './modules/farewell.js';
 
-console.log(`Welcome to the File Manager, ${username}!`);
+greeting();
 
 printWorkingDirectory();
 
@@ -13,16 +14,13 @@ const rl = readline.createInterface({input, output});
 
 rl.prompt();
 
-rl.on('line', (line) => {
+rl.on('line', async (line) => {
     if (line.trim() === '.exit') {
         rl.close();
     } else {
-        processUserInput(line);
-        printWorkingDirectory();
+        await processUserInput(line);
         rl.prompt();
     }
 });
 
-rl.on('close', () => {
-    console.log(`Thank you for using File Manager, ${username}, goodbye!`);
-});
+rl.on('close', farewell);
