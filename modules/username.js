@@ -1,1 +1,4 @@
-export const username = process.argv[2].split('=').slice(1);
+export const username = process.argv
+    .find((arg) => arg.startsWith('--username'))
+    .split('=')
+    .slice(1);

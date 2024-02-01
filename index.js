@@ -3,6 +3,7 @@ import { stdin as input, stdout as output } from 'node:process';
 
 import { printWorkingDirectory } from './modules/working-directory.js';
 import { username } from './modules/username.js';
+import { processUserInput } from './modules/process-user-input.js';
 
 console.log(`Welcome to the File Manager, ${username}!`);
 
@@ -16,7 +17,7 @@ rl.on('line', (line) => {
     if (line.trim() === '.exit') {
         rl.close();
     } else {
-        console.log(line);
+        processUserInput(line);
         printWorkingDirectory();
         rl.prompt();
     }
