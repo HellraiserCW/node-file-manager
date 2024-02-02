@@ -10,6 +10,8 @@ import { deleteFile } from './commands/delete.js';
 import { moveFile } from './commands/move.js';
 import { getOSInfo } from './commands/os.js';
 import { calculateFileHash } from './commands/hash.js';
+import { compressFile } from './commands/compress.js';
+import { decompressFile } from './commands/decompress.js';
 
 export const processUserInput = async (input) => {
     const [command, ...args] = input.split(' ');
@@ -46,6 +48,12 @@ export const processUserInput = async (input) => {
             break;
         case 'hash':
             await calculateFileHash(args[0]);
+            break;
+        case 'compress':
+            await compressFile(args[0], args[1]);
+            break;
+        case 'decompress':
+            await decompressFile(args[0], args[1]);
             break;
         default:
             handleUnsupportedCommand();
