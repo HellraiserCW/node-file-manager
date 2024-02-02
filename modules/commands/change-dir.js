@@ -1,5 +1,6 @@
 import path from 'path';
-import { changeDir, currentWorkingDirectory, printWorkingDirectory } from '../working-directory.js';
+
+import { changeDir, currentWorkingDirectory } from '../working-directory.js';
 import { handleFailedOperation } from './failed.js';
 
 export const changeDirectory = async (targetDirectory) => {

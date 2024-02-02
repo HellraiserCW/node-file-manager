@@ -1,7 +1,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 
-import { currentWorkingDirectory, printWorkingDirectory } from '../working-directory.js';
+import { currentWorkingDirectory } from '../working-directory.js';
 import { handleFailedOperation } from './failed.js';
 
 export const listDirectoryContents = async () => {

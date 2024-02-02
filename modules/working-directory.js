@@ -3,7 +3,6 @@ import path from 'path';
 import fs from 'fs/promises';
 
 import { handleFailedOperation } from './commands/failed.js';
-import { username } from './username.js';
 
 export let currentWorkingDirectory = homedir();
 

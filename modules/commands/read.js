@@ -13,8 +13,8 @@ export const readFileContent = async (filePath) => {
             readStream,
             process.stdout
         );
-        // Check for Error: write EPIPE after successful reading
-        // MaxListenersExceededWarning: Possible EventEmitter memory leak detected. after multiple successful reading
+        // TODO Check for Error: write EPIPE after successful reading
+        // TODO MaxListenersExceededWarning: Possible EventEmitter memory leak detected. after multiple successful reading
     } catch {
         handleFailedOperation();
     }
