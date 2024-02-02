@@ -27,7 +27,5 @@ export const listDirectoryContents = async () => {
         console.table(rows, ['Name', 'Type']);
     } catch {
         handleFailedOperation();
-    } finally {
-        printWorkingDirectory();
     }
 };

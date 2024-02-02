@@ -19,6 +19,7 @@ rl.on('line', async (line) => {
         rl.close();
     } else {
         await processUserInput(line);
+        printWorkingDirectory();
         rl.prompt();
     }
 });

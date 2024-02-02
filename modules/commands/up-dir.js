@@ -6,5 +6,4 @@ export const navigateUp = () => {
     if (currentWorkingDirectory !== path.parse(currentWorkingDirectory).root) {
         upDir();
     }
-    printWorkingDirectory();
 };

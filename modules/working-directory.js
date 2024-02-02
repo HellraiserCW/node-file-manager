@@ -3,11 +3,16 @@ import path from 'path';
 import fs from 'fs/promises';
 
 import { handleFailedOperation } from './commands/failed.js';
+import { username } from './username.js';
 
 export let currentWorkingDirectory = homedir();
 
 export const printWorkingDirectory = () => {
-    console.log(`You are currently in ${currentWorkingDirectory}`);
+    console.log(
+        '\x1b[32m',
+        `You are currently in ${currentWorkingDirectory}`,
+        '\x1b[0m'
+        );
 };
 
 export const upDir = () => {
@@ -23,7 +28,5 @@ export const changeDir = async (newPath) => {
         }
     } catch {
         handleFailedOperation();
-    } finally {
-        printWorkingDirectory();
     }
 };
