@@ -2,17 +2,9 @@ import { homedir } from 'os';
 import path from 'path';
 import fs from 'fs/promises';
 
-import { handleFailedOperation } from './commands/failed.js';
+import { handleFailedOperation } from '../loggers/failed-operation.js';
 
 export let currentWorkingDirectory = homedir();
-
-export const printWorkingDirectory = () => {
-    console.log(
-        '\x1b[32m',
-        `You are currently in ${currentWorkingDirectory}`,
-        '\x1b[0m'
-        );
-};
 
 export const upDir = () => {
     currentWorkingDirectory = path.resolve(currentWorkingDirectory, '..');

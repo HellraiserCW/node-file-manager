@@ -1,6 +1,6 @@
 import path from 'path';
 
-import { currentWorkingDirectory, upDir } from '../working-directory.js';
+import { currentWorkingDirectory, upDir } from '../services/working-directory.js';
 
 export const navigateUp = () => {
     if (currentWorkingDirectory !== path.parse(currentWorkingDirectory).root) {

@@ -2,13 +2,14 @@ import path from 'path';
 import fs from 'fs';
 import { pipeline } from 'stream/promises';
 
-import { handleFailedOperation } from './failed.js';
-import { currentWorkingDirectory } from '../working-directory.js';
+import { handleFailedOperation } from '../loggers/failed-operation.js';
+import { pathResolve } from '../helpers/path-resolve.js';
 
-export const copyFile = async (sourceFile, destinationPath) => {
+export const copyFile = async (pathToFile, newFileName) => {
     try {
-        const fullSourcePath = path.resolve(currentWorkingDirectory, sourceFile);
-        const fullDestinationPath = path.resolve(destinationPath, path.basename(fullSourcePath));
+        const fullSourcePath = pathResolve(pathToFile);
+        const fullDestinationPath = path.resolve(newFileName, path.basename(fullSourcePath));
+
         const readStream = fs.createReadStream(fullSourcePath);
         const writeStream = fs.createWriteStream(fullDestinationPath);
 

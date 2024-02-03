@@ -1,4 +1,4 @@
-export const handleUnsupportedCommand = () => {
+export const handleInvalidInput = () => {
     console.log(
         '\x1b[31m',
         'Invalid input.',
