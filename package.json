@@ -1,0 +1,14 @@
+{
+  "name": "node-file-manager",
+  "version": "1.0.0",
+  "description": "This repository is the solution to https://github.com/AlreadyBored/nodejs-assignments/blob/main/assignments/file-manager/assignment.md nodejs assignment",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Kostiantyn Sakharov",
+  "license": "MIT"
+}
