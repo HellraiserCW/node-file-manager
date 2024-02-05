@@ -6,10 +6,10 @@ import { pathResolve } from '../helpers/path-resolve.js';
 
 export const renameFile = async (pathToFile, newFileName) => {
     try {
-        const fullOldPath = pathResolve(pathToFile);
-        const fullNewPath = path.resolve(path.dirname(fullOldPath), newFileName);
+        const resolvedPathSourceFile = pathResolve(pathToFile);
+        const resolvedPathNewFile = path.resolve(path.dirname(resolvedPathSourceFile), newFileName);
 
-        await fs.rename(fullOldPath, fullNewPath);
+        await fs.rename(resolvedPathSourceFile, resolvedPathNewFile);
     } catch {
         handleFailedOperation();
     }

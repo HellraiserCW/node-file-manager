@@ -10,8 +10,8 @@ export const listDirectoryContents = async () => {
 
         const rows = await Promise.all(contents.map(async (itemName) => {
             const itemStats = await fs.stat(pathJoin(itemName));
-
             const itemType = itemStats.isDirectory() ? 'directory' : 'file';
+
             return { Name: itemName, Type: itemType };
         }));
 

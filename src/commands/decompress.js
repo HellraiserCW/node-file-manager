@@ -1,4 +1,3 @@
-import path from 'path';
 import { createReadStream, createWriteStream } from 'fs';
 import { createBrotliDecompress } from 'zlib';
 import { pipeline } from 'stream/promises';

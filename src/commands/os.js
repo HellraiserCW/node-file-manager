@@ -5,24 +5,18 @@ import { getCurrentUsername } from '../loggers/os/username.js';
 import { getCPUArchitecture } from '../loggers/os/architecture.js';
 import { handleInvalidInput } from '../loggers/invalid-input.js';
 
+const osCommandsMapping = {
+    '--EOL': getEOL,
+    '--cpus': getCPUs,
+    '--homedir': getHomeDirectory,
+    '--username': getCurrentUsername,
+    '--architecture': getCPUArchitecture
+};
+
 export const getOSInfo = (argument) => {
-    switch (argument) {
-        case '--EOL':
-            getEOL();
-            break;
-        case '--cpus':
-            getCPUs();
-            break;
-        case '--homedir':
-            getHomeDirectory();
-            break;
-        case '--username':
-            getCurrentUsername();
-            break;
-        case '--architecture':
-            getCPUArchitecture();
-            break;
-        default:
-            handleInvalidInput();
-    }
+    const executeOSCommand = osCommandsMapping[argument];
+
+    executeOSCommand
+        ? executeOSCommand()
+        : handleInvalidInput();
 };
